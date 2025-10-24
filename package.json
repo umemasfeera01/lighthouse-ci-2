@@ -1,0 +1,10 @@
+{
+  "name": "lighthouse-ci-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "lhci:autorun": "lhci autorun"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0"
+  }
+}
