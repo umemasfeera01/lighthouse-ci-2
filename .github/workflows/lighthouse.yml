@@ -4,28 +4,22 @@ on:
   push:
     branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
   lhci:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install -g @lhci/cli
+        run: npm ci
 
-      - name: Run Lighthouse CI
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ "08830b17-a026-44a0-9acc-3bfa6a3bc78e"}}
-        run: |
-          lhci autorun \
-            --collect.url=https://urbangents2.yeetonline.com/ \
-            --upload.target=lhci \
-            --upload.serverBaseUrl=http://localhost:9001 \
-            --upload.token=$LHCI_GITHUB_APP_TOKEN
+      - name: Run LHCI
+        run: npx @lhci/cli autorun --config=.lighthouserc.json --upload.target=temporary-public-storage

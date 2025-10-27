@@ -1,10 +1,11 @@
 {
   "name": "lighthouse-ci-demo",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "lhci:autorun": "lhci autorun"
+    "lhci:autorun": "lhci autorun --config=.lighthouserc.json --upload.target=temporary-public-storage"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.14.0"
+    "@lhci/cli": "^0.10.0"
   }
 }
