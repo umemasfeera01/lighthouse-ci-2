@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Lighthouse CI
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{ ae8fd580-6e9f-47a9-9427-826d54ac6b1b}}
+          LHCI_GITHUB_APP_TOKEN: ${{ a08830b17-a026-44a0-9acc-3bfa6a3bc78e}}
         run: |
           lhci autorun \
             --collect.url=https://urbangents2.yeetonline.com/ \
