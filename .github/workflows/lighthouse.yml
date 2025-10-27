@@ -6,20 +6,26 @@ on:
   pull_request:
 
 jobs:
-  lighthouse:
+  lhci:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm install -g @lhci/cli
 
       - name: Run Lighthouse CI
-        run: npm run lhci:autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ ae8fd580-6e9f-47a9-9427-826d54ac6b1b}}
+        run: |
+          lhci autorun \
+            --collect.url=https://urbangents2.yeetonline.com/ \
+            --upload.target=lhci \
+            --upload.serverBaseUrl=http://localhost:9001 \
+            --upload.token=$LHCI_GITHUB_APP_TOKEN
