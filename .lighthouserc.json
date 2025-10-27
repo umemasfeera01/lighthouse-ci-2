@@ -8,7 +8,7 @@
     "upload": {
       "target": "lhci",
       "serverBaseUrl": "http://localhost:9001",
-      "token": " 08830b17-a026-44a0-9acc-3bfa6a3bc78e"
+      "token": " 08830b17a02644a09acc3bfa6a3bc78e"
     },
     "assert": {
       "assertions": {
